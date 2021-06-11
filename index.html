@@ -12,8 +12,6 @@
 </head>
 
 <body>
-    <a href="highScore.html">View High Scores</a>
-    <ul id="highScores"></ul>
     <section>
 
         <div>
@@ -25,7 +23,8 @@
             <div id="getStarted">
                 <p>Are you ready to get started? Press the button below and keep an eye on the timer!</p>
             </div>
-            <button id="startButton">Start Quiz!</button>
+            <!-- <button id="startButton">Start Quiz!</button> -->
+            <input id="startButton" type="button" onclick="startTimer()" value="Start Quiz">
         </div>
 
         <div id="questionsDiv" class="hide">
@@ -87,7 +86,7 @@
                 type="text" 
                 name="username" 
                 id="username" 
-                placeholder="username" />
+                placeholder="initials"/>
             </form>
             
             <br>
@@ -99,7 +98,8 @@
             <br><br>
         </div>
 
-
+        <a href="highScore.html">View High Scores</a>
+        <ul id="highScores"></ul>
 
     </section>
 

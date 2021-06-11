@@ -4,6 +4,7 @@ function startTimer(){
     let timer = setInterval(function(){
         sec--;
           document.getElementById("timerDisplay").innerHTML="00:"+ sec;
+          
       if (sec < 0) {
           clearInterval(timer);
           alert("Sorry - you ran out of time!!")
@@ -12,22 +13,19 @@ function startTimer(){
   }
 
 
-
-   
-
-
-
-
-
-
   const startButton = document.getElementById("startButton").addEventListener("click", function() {
-    //document.getElementById('timerDisplay').innterHTML="00:" +sec;
+      
+    
+    document.getElementById('timerDisplay').innterHTML="00:" +sec;
+
 });
 
 startTimer(startButton);
 
 const startQuizButton=document.getElementById("startButton");
 startQuizButton.addEventListener("click", startQuiz);
+
+
 
 const answerButton1=document.getElementsByClassName("answer1");
 for (var i = 0; i < answerButton1.length; i++) {
@@ -68,6 +66,7 @@ function startQuiz(){
 
     const question4El = document.getElementById("question4");
     question4El.classList.add('hide');
+    
 }
 
 
@@ -77,34 +76,54 @@ function processResults(event){
     const answer = event.target.dataset.answer
     const question = event.target.dataset.questionnumber
 
-    if(question === "1" && answer === "blue"){
-        const totaleSCoreEl = document.getElementById("score")
-        totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
-    } 
-    else {
-        sec -= 10;
+    if (question === "1"){
+        if (answer === "blue"){
+            const totaleSCoreEl = document.getElementById("score")
+            totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
+            alert("You are correct!!")
+        }
+        else {
+            sec -= 10;
+            alert("sorry wrng answer!!")
+        }
     }
-    if(question === "2" && answer === "Steven Spielberg"){
-        const totaleSCoreEl = document.getElementById("score")
-        totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
-    } 
-    else {
-        sec -= 10;
+
+    else if (question === "2"){
+        if (answer === "Steven Spielberg"){
+            const totaleSCoreEl = document.getElementById("score")
+            totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
+            alert("You are correct!!")
+        }
+        else {
+            sec -= 10;
+            alert("sorry wrong answer!!")
+        }
     }
-    if(question === "3" && answer === "Draco Malfoy"){
-        const totaleSCoreEl = document.getElementById("score")
-        totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
-    } 
-    else {
-        sec -= 10;
+
+    else if (question === "3"){
+        if (answer === "Draco Malfoy"){
+            const totaleSCoreEl = document.getElementById("score")
+            totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
+            alert("You are correct!!")
+        }
+        else {
+            sec -= 10;
+            alert("sorry wrong answer!!")
+        }
     }
-    if(question === "4" && answer === "The Black Pearl"){
-        const totaleSCoreEl = document.getElementById("score")
-        totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
-    } 
-    else {
-        sec -= 10;
+    else if (question === "4"){
+        if (answer === "The Black Pearl"){
+            const totaleSCoreEl = document.getElementById("score")
+            totaleSCoreEl.innerHTML = parseInt(totaleSCoreEl.innerHTML) + 10
+            alert("You are correct!!")
+        }
+        else {
+            sec -= 10;
+            alert("sorry worng answer!!")
+        }
     }
+    
+    
    
         showNextQuestion(question)
 }
@@ -125,7 +144,8 @@ function processResults(event){
         const question4El = document.getElementById("question4");
         question4El.classList.add('hide');
         if (questionNumber === "4"){
-        console.log("ShowResults")
+        
+        alert("Congratulations! You have completed the quiz!! Save your high score below!")
 
         } else {
             const nextQuestion = document.getElementById("question" + nextQuestionNumber);
@@ -135,7 +155,7 @@ function processResults(event){
     }
 
          
-    function saveHighScores (e){
+    function saveHighScores (){
 
         let highScore = JSON.parse(localStorage.getItem("highScore")) || [];
          console.log(highScore)

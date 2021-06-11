@@ -3,7 +3,9 @@
 
 }
 
-
+/* #timerDisplay{
+    display: none;
+}   */
 
 #welcome {
     text-align: center;
@@ -150,8 +152,13 @@ h2 {
 }
 
 
-}
 
 #username {
     text-align: center;
+    width: 50px;
+}
+
+#highScores{
+    margin: auto;
+
 }
